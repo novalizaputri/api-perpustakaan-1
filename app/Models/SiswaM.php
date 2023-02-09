@@ -12,5 +12,6 @@ class SiswaM extends Model
     protected $filable=[
         'nis','namalengkap','jk','kelas','nowa','email'
     ];
-    
+
+    protected $hidden = [];
 }

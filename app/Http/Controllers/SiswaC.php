@@ -11,4 +11,5 @@ class SiswaC extends Controller
         $siswa = SiswaM::all();
         return response()->json($siswa);
     }
+
 }
