@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Resources\PostR;
 
 class PostC extends Controller
 {
     public function index(){
-        $post = Post::all();
-        return response()->json($post);
+        $posts = Post::all();
+        // return response()-> json($posts);
+        return PostR::collection($posts);
     }
+
+    public function detail($id){
+        $posts = Post::findOrFail($id);
+    return new PostR($posts);
+    }
+    
 }
