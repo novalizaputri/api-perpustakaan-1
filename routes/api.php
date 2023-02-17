@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthC;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostC;
+use App\Http\Controllers\BookC;
 
 route::get('/', function(){
     return 'Hello World API !';
@@ -17,3 +18,6 @@ route::post('/login',[AuthC::class,'login']);
 route::get('/password',function(){
     return Hash::make('rahasia');
 });
+
+route::get('/books',[BookC::class,'index']);
+route::get('/books/{id}',[BookC::class,'detail']);
